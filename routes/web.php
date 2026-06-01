@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn() => redirect()->route('events.index'));
 
-// Auth routes (Breeze)
 require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
@@ -19,11 +18,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
-    // Événements (lecture pour tous)
+    // Événements — liste (tous)
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
-    Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
 
-    // Événements (création/modification pour organisateur + admin)
+    // Événements — CRUD (admin + organisateur) — create AVANT {event}
     Route::middleware('role:admin,organisateur')->group(function () {
         Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
         Route::post('/events', [EventController::class, 'store'])->name('events.store');
@@ -39,7 +37,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/events/{event}/matchs/{match}/score', [MatchController::class, 'saveScore'])->name('matchs.saveScore');
     });
 
-    // Suppression événement (admin seulement)
+    // Événement — show (tous) — APRÈS /events/create pour éviter conflit
+    Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+
+    // Suppression (admin seulement)
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy')->middleware('role:admin');
 
     // Inscriptions

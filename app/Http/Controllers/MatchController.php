@@ -36,6 +36,7 @@ class MatchController extends Controller
 
     public function score(Event $event, Matchs $match)
     {
+        $match->load('scores');
         return view('matchs.score', compact('event', 'match'));
     }
 
