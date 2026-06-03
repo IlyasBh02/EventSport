@@ -1,22 +1,31 @@
 @extends('layouts.app')
 @section('title', 'Modifier l\'événement')
 @section('content')
-<div class="max-w-2xl mx-auto">
-    <h2 class="text-3xl font-extrabold text-gray-900 mb-2">Modifier l'événement</h2>
-    <p class="text-gray-500 text-sm mb-6">{{ $event->name }}</p>
-    <div class="bg-white rounded-lg shadow-lg p-8">
-        <form method="POST" action="{{ route('events.update', $event) }}">
-            @csrf @method('PUT')
-            @include('events._form')
-            <div class="flex gap-3 mt-8 pt-6 border-t border-gray-100">
-                <button type="submit" class="inline-flex justify-center py-2.5 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Enregistrer les modifications
-                </button>
-                <a href="{{ route('events.show', $event) }}" class="inline-flex justify-center py-2.5 px-5 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-                    Annuler
-                </a>
-            </div>
-        </form>
+
+<a href="{{ route('events.show', $event) }}" class="back-link">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    Retour à l'événement
+</a>
+
+<div style="max-width:680px;margin:0 auto;">
+    <div class="page-header">
+        <h1>Modifier l'événement</h1>
+        <p>{{ $event->name }}</p>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="{{ route('events.update', $event) }}">
+                @csrf @method('PUT')
+                @include('events._form')
+                <div style="display:flex;gap:0.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Enregistrer les modifications
+                    </button>
+                    <a href="{{ route('events.show', $event) }}" class="btn btn-secondary btn-lg">Annuler</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 @endsection

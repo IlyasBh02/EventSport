@@ -22,7 +22,7 @@ class InscriptionController extends Controller
 
     public function destroy(Inscription $inscription)
     {
-        if ($inscription->user_id !== Auth::id()) abort(403);
+        if ($inscription->user_id !== Auth::id() && !Auth::user()->isAdmin()) abort(403);
         $this->service->annuler($inscription);
         return back()->with('success', 'Inscription annulée.');
     }

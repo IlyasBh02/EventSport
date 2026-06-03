@@ -6,6 +6,8 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\MatchController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SportTypeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn() => redirect()->route('events.index'));
@@ -53,6 +55,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/events/{event}/favoris', [FavoriteController::class, 'store'])->name('favorites.store');
     Route::delete('/events/{event}/favoris', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
 
-    // Admin dashboard
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('role:admin');
+    // Admin dashboard & management
+    Route::middleware('role:admin')->group(function () {
+        Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+        Route::resource('admin/users', UserController::class)->only(['index', 'update', 'destroy']);
+        Route::resource('admin/sport-types', SportTypeController::class)->except(['show']);
+    });
 });

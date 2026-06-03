@@ -6,6 +6,15 @@
     <h1 class="text-2xl font-bold text-slate-800">Dashboard Administrateur</h1>
     <p class="text-slate-500 text-sm mt-1">Vue d'ensemble de la plateforme</p>
 </div>
+{{-- Action Actions --}}
+<div class="flex flex-wrap gap-3 mb-8">
+    <a href="{{ route('users.index') }}" class="inline-flex items-center gap-2 px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm rounded-xl transition-all shadow-sm shadow-indigo-150">
+        👥 Gérer les Utilisateurs
+    </a>
+    <a href="{{ route('sport-types.index') }}" class="inline-flex items-center gap-2 px-5 py-3 bg-slate-800 hover:bg-slate-900 text-white font-semibold text-sm rounded-xl transition-all shadow-sm shadow-slate-150">
+        🏆 Gérer les Sports
+    </a>
+</div>
 
 {{-- Stat cards --}}
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
