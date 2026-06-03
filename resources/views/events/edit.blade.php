@@ -1,23 +1,18 @@
 @extends('layouts.app')
 @section('title', 'Modifier l\'événement')
-
 @section('content')
 <div class="max-w-2xl mx-auto">
-    <div class="mb-6">
-        <h1 class="text-2xl font-bold text-slate-800">Modifier l'événement</h1>
-        <p class="text-slate-500 text-sm mt-1">{{ $event->name }}</p>
-    </div>
-    <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-8">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-2">Modifier l'événement</h2>
+    <p class="text-gray-500 text-sm mb-6">{{ $event->name }}</p>
+    <div class="bg-white rounded-lg shadow-lg p-8">
         <form method="POST" action="{{ route('events.update', $event) }}">
             @csrf @method('PUT')
             @include('events._form')
-            <div class="flex gap-3 mt-8 pt-6 border-t border-slate-100">
-                <button type="submit"
-                        class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-xl transition-colors">
+            <div class="flex gap-3 mt-8 pt-6 border-t border-gray-100">
+                <button type="submit" class="inline-flex justify-center py-2.5 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     Enregistrer les modifications
                 </button>
-                <a href="{{ route('events.show', $event) }}"
-                   class="px-5 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-600 text-sm font-medium rounded-xl transition-colors">
+                <a href="{{ route('events.show', $event) }}" class="inline-flex justify-center py-2.5 px-5 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
                     Annuler
                 </a>
             </div>
