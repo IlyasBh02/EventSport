@@ -20,7 +20,7 @@
             </a>
         </div>
         {{-- Card --}}
-        <div class="bg-white border border-slate-200 rounded-2xl shadow-sm px-8 py-8">
+        <div class="border border-slate-200 rounded-2xl shadow-sm px-8 py-8">
             {{ $slot }}
         </div>
     </div>

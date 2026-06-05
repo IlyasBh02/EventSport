@@ -14,7 +14,7 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {{-- Form card --}}
     <div class="md:col-span-1">
-        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm sticky top-20">
+        <div class="border border-slate-200 rounded-2xl p-6 shadow-sm sticky top-20">
             <h3 class="text-base font-bold text-slate-800 mb-4" id="formTitle">Ajouter une Catégorie</h3>
             
             <form id="sportTypeForm" method="POST" action="{{ route('sport-types.store') }}">
@@ -43,7 +43,7 @@
  
     {{-- Listing card --}}
     <div class="md:col-span-2">
-        <div class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <div class="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
             <div class="px-6 py-4 border-b border-slate-100">
                 <h3 class="font-bold text-slate-800 text-base">Catégories existantes</h3>
             </div>

@@ -18,21 +18,21 @@
 
 {{-- Stat cards --}}
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
-    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex items-center gap-4">
-        <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🏆</div>
+    <div class="border border-slate-200 rounded-2xl p-6 shadow-sm flex items-center gap-4">
+        <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-content text-2xl flex-shrink-0">🏆</div>
         <div>
             <p class="text-3xl font-bold text-slate-800">{{ $totalEvents }}</p>
             <p class="text-slate-500 text-sm font-medium mt-0.5">Événements</p>
         </div>
     </div>
-    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex items-center gap-4">
+    <div class="border border-slate-200 rounded-2xl p-6 shadow-sm flex items-center gap-4">
         <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">👥</div>
         <div>
             <p class="text-3xl font-bold text-slate-800">{{ $totalParticipants }}</p>
             <p class="text-slate-500 text-sm font-medium mt-0.5">Participants</p>
         </div>
     </div>
-    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex items-center gap-4">
+    <div class="border border-slate-200 rounded-2xl p-6 shadow-sm flex items-center gap-4">
         <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">🥊</div>
         <div>
             <p class="text-3xl font-bold text-slate-800">{{ $totalMatchs }}</p>
@@ -42,7 +42,7 @@
 </div>
 
 {{-- Popular events table --}}
-<div class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+<div class="border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
     <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
         <div>
             <h2 class="text-base font-bold text-slate-800">Événements les plus populaires</h2>

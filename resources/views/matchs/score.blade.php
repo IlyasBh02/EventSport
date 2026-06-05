@@ -7,7 +7,7 @@
         <h1 class="text-2xl font-bold text-slate-800">Saisir le score</h1>
         <p class="text-slate-500 text-sm mt-1">{{ $event->name }}</p>
     </div>
-    <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-8">
+    <div class="border border-slate-200 rounded-2xl shadow-sm p-8">
 
         {{-- Teams display --}}
         <div class="flex items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-100">

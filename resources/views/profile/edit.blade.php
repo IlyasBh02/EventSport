@@ -9,7 +9,7 @@
     </div>
 
     {{-- Profile card --}}
-    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-5 flex items-center gap-4">
+    <div class="border border-slate-200 rounded-2xl p-6 shadow-sm mb-5 flex items-center gap-4">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0
             {{ $user->isAdmin() ? 'bg-purple-600' : ($user->isOrganisateur() ? 'bg-emerald-600' : 'bg-indigo-600') }}">
             {{ strtoupper(substr($user->name, 0, 1)) }}
@@ -25,7 +25,7 @@
     </div>
 
     {{-- Edit form --}}
-    <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-8">
+    <div class="border border-slate-200 rounded-2xl shadow-sm p-8">
         <form method="POST" action="{{ route('profile.update') }}">
             @csrf @method('PUT')
             <div class="space-y-5">
